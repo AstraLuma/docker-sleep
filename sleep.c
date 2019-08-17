@@ -1,5 +1,8 @@
-#include <stdlib.h>
+#include <unistd.h>
+#include <limits.h>
 
 int main() {
-	exit(0);
+	for(;;) {
+        sleep(UINT_MAX);
+    }
 }
