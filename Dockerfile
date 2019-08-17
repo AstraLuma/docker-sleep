@@ -1,11 +1,11 @@
 FROM gcc AS build
 WORKDIR /tmp
 
-COPY noop.c .
-RUN gcc noop.c -static -o noop
+COPY sleep.c .
+RUN gcc sleep.c -static -o sleep
 
 FROM scratch
 MAINTAINER Jan Nash <jnash@jnash.de>
 
-COPY --from=build /tmp/noop /
-CMD ["/noop"]
+COPY --from=build /tmp/sleep /
+CMD ["/sleep"]
